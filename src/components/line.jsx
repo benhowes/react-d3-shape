@@ -55,6 +55,7 @@ export default class Line extends Component {
     } = this.props;
 
     var line =  D3Shape.line()
+      .defined((d) => { return !!d && d !==0 }) // NaN, false or null are excluded
       .x((d) => { return xScaleSet(d.x) })
       .y((d) => { return yScaleSet(d.y) })
 
